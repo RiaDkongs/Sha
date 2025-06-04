@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Messages for Wilfridah</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .messages {
+      position: relative;
+      height: 220px;
+      margin: 2rem 0;
+    }
+
+    .message-card {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: #e6f2ff;
+      padding: 1.2rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .message-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .message-card p {
+      font-size: 1.05rem;
+      color: #03396c;
+      margin: 0;
+    }
+
+    .message-card span {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+      color: #005b96;
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #005b96;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      color: #011f4b;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💌 Special Messages for You, Wilfridah</h1>
+
+    <div class="messages">
+      <div class="message-card">
+        <p>"Happy birthday 💙! You are an amazing sister, and we are so lucky to have you. May your 28th year be the best one yet. Keep shining and smiling always!"</p>
+        <span>- Love, your Siblings</span>
+      </div>
+      <div class="message-card">
+        <p>"Happy birthday ex-jirani mwema,😝.May our good Lord grant you all your heart desires according to His will. Enjoy your old age days😂"</p>
+        <span>- Sheryl</span>
+      </div>
+      <div class="message-card">
+        <p>"Happy birthday Rembo!
+I’ve known you since 2015, and in all those years, you’ve been nothing but selfless, kind, and always there for me and the people I care about. I may not have much to give you today, but I hope one day I can be as good to you as you’ve been to me🥹
+Thank you for being such a genuine friend. I’m truly grateful for you. Wishing you all the happiness and peace you deserve this year and always. Aheri 🎉❤"</p>
+        <span>- Beryne</span>
+      </div>
+      <div class="message-card">
+        <p>"Joyeux Anniversaire 🥳, ma sœur Wilfridah 💜! Wishing you a day full of love, laughter, and sweet surprises. Tu es une bénédiction dans ma vie...je t’aime de tout mon cœur. </p>
+        <span>- Avec amour, Ria</span>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <a href="#" id="prevBtn">Previous</a>
+      <a href="#" id="nextBtn">Next</a>
+    </div>
+
+    <a href="index.html" class="back-button">← Back to Home</a>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll('.message-card');
+    let current = 0;
+
+    function showMessage(index) {
+      cards.forEach(card => card.classList.remove('show'));
+      cards[index].classList.add('show');
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      current = (current - 1 + cards.length) % cards.length;
+      showMessage(current);
+    });
+
+    document.getElementById('nextBtn').addEventListener('click', (e) => {
+      e.preventDefault();
+      current = (current + 1) % cards.length;
+      showMessage(current);
+    });
+
+    // Show the first message initially
+    showMessage(current);
+  </script>
+</body>
+</html>

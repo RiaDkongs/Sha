@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Wilfridah!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🎉 Happy 28th Birthday, Wilfridah! 🎉</h1>
+    <p>You are loved beyond words. Wishing you a year full of joy, health, and success!</p>
+
+    <div class="buttons">
+      <a href="video.html">📹 Watch Your Birthday Video</a>
+      <a href="message.html">💌 Read a Special Message</a>
+    </div>
+
+    <h2>📸 Memories with Wilfridah</h2>
+    <div class="slideshow-container">
+      <img class="slide" src="images/photo1.jpg" alt="Wilfridah 1" />
+      <img class="slide" src="images/photo2.jpg" alt="Wilfridah 2" />
+      <img class="slide" src="images/photo3.jpg" alt="Wilfridah 3" />
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    window.onload = () => {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          spread: 60,
+          origin: { y: 0.4 }
+        });
+      }, 1500);
+    };
+
+    let slideIndex = 0;
+    const slides = document.querySelectorAll(".slide");
+
+    function showSlides() {
+      slides.forEach(slide => slide.classList.remove("active"));
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add("active");
+    }
+
+    slides[0].classList.add("active");
+    setInterval(showSlides, 3000);
+  </script>
+</body>
+</html>
